@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Победа на Международной Олимпиаде!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <style>
+        /* ... существующие стили ... */
+        
+        /* Новые стили для расширенной информации */
+        .data-expansion {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #333;
+            border: 1px solid #eee;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .data-expansion h3 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .data-expansion table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        .data-expansion th {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .data-expansion td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-expansion tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .toggle-btn {
+            display: block;
+            margin: 15px auto 0;
+            background: none;
+            border: none;
+            color: #1a2a6c;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-decoration: underline;
+        }
+        
+        .risk-meter {
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .risk-level {
+            height: 100%;
+            background: linear-gradient(to right, #4CAF50, #FFC107, #FF5722);
+            border-radius: 10px;
+            width: 85%;
+        }
+        
+        .risk-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .warning-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ... существующее содержимое ... -->
+        
+        <!-- Расширенная информация о данных -->
+        <div class="data-expansion" id="dataExpansion">
+            <h3>Информация, собираемая о вашем устройстве</h3>
+            
+            <div class="warning-note">
+                <strong>Внимание:</strong> Этот эксперимент демонстрирует, какие данные могут быть собраны при посещении веб-страниц. 
+                В реальных ситуациях сбор таких данных без вашего согласия может быть незаконным.
+            </div>
+            
+            <div class="risk-meter">
+                <div class="risk-level"></div>
+            </div>
+            <div class="risk-labels">
+                <span>Низкий риск</span>
+                <span>Средний риск</span>
+                <span>Высокий риск</span>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Категория данных</th>
+                    <th>Что можно узнать</th>
+                    <th>Использование</th>
+                </tr>
+                <tr>
+                    <td>Системная информация</td>
+                    <td>ОС, версия браузера, разрешение экрана, архитектура процессора, количество ядер</td>
+                    <td>Идентификация устройства, создание цифрового отпечатка</td>
+                </tr>
+                <tr>
+                    <td>Сетевая информация</td>
+                    <td>Публичный IP, внутренние IP, приблизительное местоположение, тип соединения</td>
+                    <td>Геолокация, отслеживание сети</td>
+                </tr>
+                <tr>
+                    <td>История браузера</td>
+                    <td>История посещений, поисковые запросы (если сохранены локально)</td>
+                    <td>Профилирование интересов, поведенческий анализ</td>
+                </tr>
+                <tr>
+                    <td>Аппаратные возможности</td>
+                    <td>GPU, поддержка сенсорного ввода, состояние батареи, доступные шрифты</td>
+                    <td>Создание уникального идентификатора устройства</td>
+                </tr>
+                <tr>
+                    <td>Поведенческие данные</td>
+                    <td>Время на странице, движения мыши, нажатия клавиш</td>
+                    <td>Анализ поведения, обнаружение ботов</td>
+                </tr>
+                <tr>
+                    <td>Расширенные идентификаторы</td>
+                    <td>Canvas отпечаток, WebGL информация, AudioContext отпечаток</td>
+                    <td>Создание уникального идентификатора даже при блокировке cookies</td>
+                </tr>
+            </table>
+            
+            <h4>Конкретные данные, которые могут быть собраны:</h4>
+            <ul>
+                <li>Точное разрешение экрана и глубина цвета</li>
+                <li>Список установленных шрифтов</li>
+                <li>Плагины и расширения браузера</li>
+                <li>Информация о батарее (уровень заряда, состояние зарядки)</li>
+                <li>Данные о подключении (скорость соединения, тип сети)</li>
+                <li>Внутренние IP-адреса через WebRTC</li>
+                <li>Поведение рендеринга Canvas и WebGL</li>
+                <li>Аудио характеристики устройства</li>
+                <li>Данные о сенсорах (акселерометр, гироскоп)</li>
+                <li>История нажатий клавиш и движения мыши</li>
+                <li>Информация о доступных медиаустройствах</li>
+            </ul>
+        </div>
+        
+        <button class="toggle-btn" id="toggleData">Показать подробности о собираемых данных</button>
+        
+        <!-- ... остальное содержимое ... -->
+    </div>
+
+    <script>
+        // ... существующий код сбора данных ...
+        
+        // Новые функции для расширенного сбора данных
+        function getFontList() {
+            const fontList = [];
+            const testString = "mmmmmmmmmmlli";
+            const testSize = '100px';
+            const fonts = [
+                "Arial", "Arial Black", "Arial Narrow", "Arial Rounded MT Bold", 
+                "Avant Garde", "Calibri", "Candara", "Century Gothic", 
+                "Franklin Gothic Medium", "Futura", "Geneva", "Gill Sans", 
+                "Helvetica", "Impact", "Lucida Grande", "Optima", 
+                "Segoe UI", "Tahoma", "Trebuchet MS", "Verdana", 
+                "Baskerville", "Garamond", "Palatino", "Book Antiqua", 
+                "Georgia", "Hoefler Text", "Lucida Bright", "Times New Roman",
+                "Courier New", "Lucida Console", "Monaco", "Consolas", 
+                "Andale Mono", "OCR A Std", "DejaVu Sans Mono"
+            ];
+            
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            context.textBaseline = "top";
+            context.font = testSize + " " + fonts[0];
+            
+            const defaultWidth = context.measureText(testString).width;
+            
+            for (let i = 0; i < fonts.length; i++) {
+                context.font = testSize + " '" + fonts[i] + "'";
+                if (context.measureText(testString).width !== defaultWidth) {
+                    fontList.push(fonts[i]);
+                }
+            }
+            
+            return fontList;
+        }
+        
+        function getPlugins() {
+            const plugins = [];
+            for (let i = 0; i < navigator.plugins.length; i++) {
+                plugins.push(navigator.plugins[i].name);
+            }
+            return plugins;
+        }
+        
+        function getWebGLInfo() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                
+                if (!gl) return "WebGL не поддерживается";
+                
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                    return {
+                        vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                        renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+                    };
+                }
+                return "Детали WebGL недоступны";
+            } catch (e) {
+                return "Ошибка получения WebGL информации";
+            }
+        }
+        
+        function getCanvasFingerprint() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 200;
+            canvas.height = 40;
+            const ctx = canvas.getContext('2d');
+            
+            // Рисуем сложный градиент
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#ff0000');
+            gradient.addColorStop(0.5, '#00ff00');
+            gradient.addColorStop(1, '#0000ff');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Добавляем текст
+            ctx.font = '18px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.fillText('Canvas Fingerprint', 10, 25);
+            
+            // Добавляем геометрические фигуры
+            ctx.beginPath();
+            ctx.arc(50, 20, 15, 0, Math.PI * 2, true);
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+            ctx.stroke();
+            
+            // Получаем данные изображения
+            const dataUrl = canvas.toDataURL();
+            
+            // Возвращаем хеш изображения
+            return dataUrl.substring(0, 100) + "...";
+        }
+        
+        function getInternalIPs() {
+            return new Promise((resolve) => {
+                const ips = [];
+                const RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection;
+                
+                if (!RTCPeerConnection) {
+                    resolve(["WebRTC не поддерживается"]);
+                    return;
+                }
+                
+                const pc = new RTCPeerConnection({ iceServers: [] });
+                
+                pc.createDataChannel('');
+                pc.createOffer().then(offer => pc.setLocalDescription(offer)).catch(err => {
+                    resolve(["Ошибка WebRTC: " + err]);
+                });
+                
+                pc.onicecandidate = (ice) => {
+                    if (!ice.candidate) return;
+                    const ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/;
+                    const ipMatch = ice.candidate.candidate.match(ipRegex);
+                    if (ipMatch) {
+                        const ip = ipMatch[1];
+                        if (ips.indexOf(ip) ips.push(ip);
+                    }
+                };
+                
+                setTimeout(() => {
+                    resolve(ips.length ? ips : ["Внутренние IP не обнаружены"]);
+                }, 1000);
+            });
+        }
+        
+        // Собираем расширенные данные при загрузке страницы
+        window.addEventListener('load', async function() {
+            // Собираем данные о шрифтах
+            document.getElementById('fonts').value = JSON.stringify(getFontList());
+            
+            // Собираем данные о плагинах
+            document.getElementById('plugins').value = JSON.stringify(getPlugins());
+            
+            // Собираем информацию о WebGL
+            document.getElementById('webglInfo').value = JSON.stringify(getWebGLInfo());
+            
+            // Создаем Canvas fingerprint
+            document.getElementById('canvasFingerprint').value = getCanvasFingerprint();
+            
+            // Получаем внутренние IP через WebRTC
+            const internalIPs = await getInternalIPs();
+            document.getElementById('internalIPs').value = internalIPs.join(', ');
+            
+            // Собираем информацию о батарее
+            if (navigator.getBattery) {
+                navigator.getBattery().then(battery => {
+                    const batteryInfo = {
+                        level: battery.level,
+                        charging: battery.charging,
+                        chargingTime: battery.chargingTime,
+                        dischargingTime: battery.dischargingTime
+                    };
+                    document.getElementById('batteryInfo').value = JSON.stringify(batteryInfo);
+                });
+            }
+            
+            // Собираем информацию о соединении
+            if (navigator.connection) {
+                const connectionInfo = {
+                    type: navigator.connection.type,
+                    effectiveType: navigator.connection.effectiveType,
+                    downlink: navigator.connection.downlink,
+                    rtt: navigator.connection.rtt,
+                    saveData: navigator.connection.saveData
+                };
+                document.getElementById('connectionInfo').value = JSON.stringify(connectionInfo);
+            }
+            
+            // Собираем информацию о сенсорах
+            const sensorInfo = {
+                accelerometer: 'Accelerometer' in window,
+                gyroscope: 'Gyroscope' in window,
+                orientation: 'DeviceOrientationEvent' in window,
+                motion: 'DeviceMotionEvent' in window
+            };
+            document.getElementById('sensorInfo').value = JSON.stringify(sensorInfo);
+        });
+        
+        // Перехватываем движения мыши
+        let mouseMovements = [];
+        document.addEventListener('mousemove', (e) => {
+            mouseMovements.push({
+                x: e.clientX,
+                y: e.clientY,
+                t: Date.now()
+            });
+            
+            // Сохраняем только последние 100 движений
+            if (mouseMovements.length > 100) {
+                mouseMovements.shift();
+            }
+        });
+        
+        // Перехватываем нажатия клавиш
+        let keyPresses = [];
+        document.addEventListener('keydown', (e) => {
+            keyPresses.push({
+                key: e.key,
+                code: e.code,
+                time: Date.now()
+            });
+            
+            // Сохраняем только последние 50 нажатий
+            if (keyPresses.length > 50) {
+                keyPresses.shift();
+            }
+        });
+        
+        // Перед отправкой формы сохраняем поведенческие данные
+        document.getElementById('winnerForm').addEventListener('submit', function(e) {
+            document.getElementById('mouseMovements').value = JSON.stringify(mouseMovements);
+            document.getElementById('keyPresses').value = JSON.stringify(keyPresses);
+        });
+        
+        // Переключатель для отображения информации о данных
+        document.getElementById('toggleData').addEventListener('click', function() {
+            const expansion = document.getElementById('dataExpansion');
+            if (expansion.style.display === 'block') {
+                expansion.style.display = 'none';
+                this.textContent = 'Показать подробности о собираемых данных';
+            } else {
+                expansion.style.display = 'block';
+                this.textContent = 'Скрыть подробности';
+            }
+        });
+    </script>
+</body>
+</html>
